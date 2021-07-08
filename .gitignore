@@ -1,0 +1,15 @@
+/node_modules
+/storage/*.key
+/vendor
+/storage
+.env
+.env.backup
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.idea
+/ssl/certs
+/ssl/dhparam
+/nginx/default.conf

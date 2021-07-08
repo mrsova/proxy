@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./nginx:/etc/nginx/conf.d
+      - ./ssl/certs:/etc/nginx/certs
+      - /etc/letsencrypt/archive/di58.ru/di58.ru.crt:/etc/nginx/certs/di58.ru.crt
+      - /etc/letsencrypt/archive/di58.ru/di58.ru.key:/etc/nginx/certs/di58.ru.key
+      - ./ssl/dhparam:/etc/nginx/dhparam
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    driver: bridge
